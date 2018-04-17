@@ -1,8 +1,6 @@
-const http = require('http');
-let server = http.createServer(function(req, res) {
-    res.writeHead(200, {'content-type': 'text/html'});
-    res.write('Hello, world');
-    res.end();
-});
-server.listen(8000,'localhost');
-console.log('Server is running');
+let nport = 8000;
+let sHost = 'localhost';
+const myServer = require('./myserver');
+const myRouter = require('./MyRouter');
+
+myServer.start(myRouter.route, handle);
